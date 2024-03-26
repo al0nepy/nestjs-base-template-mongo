@@ -19,6 +19,7 @@ async function bootstrap() {
     allowedHeaders: ['Content-Type', 'Accept', 'Authorization'],
   });
   app.register(import('@fastify/etag'));
+  await app.register(import('@fastify/compress'));
   app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(3001, '0.0.0.0');
